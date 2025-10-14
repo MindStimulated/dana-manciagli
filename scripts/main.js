@@ -1,0 +1,412 @@
+/**
+ * Dana Manciagli Professional Legacy Site
+ * Main JavaScript - Interactive Features
+ */
+
+// ========================================
+// Smooth Scroll & Navigation
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+  initSmoothScroll();
+  initMobileMenu();
+  initScrollEffects();
+  initContactForm();
+  initAnimations();
+});
+
+/**
+ * Initialize smooth scrolling for anchor links
+ */
+function initSmoothScroll() {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+
+      // Skip if href is just "#"
+      if (href === '#') {
+        e.preventDefault();
+        return;
+      }
+
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        e.preventDefault();
+
+        // Close mobile menu if open
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+        }
+
+        // Smooth scroll with offset for fixed nav
+        const navHeight = document.querySelector('.nav').offsetHeight;
+        const targetPosition = targetElement.offsetTop - navHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Initialize mobile menu toggle
+ */
+function initMobileMenu() {
+  const navToggle = document.getElementById('nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+
+      // Animate hamburger icon
+      const icon = navToggle.querySelector('.nav__toggle-icon');
+      icon.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
+    });
+  }
+}
+
+/**
+ * Initialize scroll effects (navbar shadow, fade-in animations)
+ */
+function initScrollEffects() {
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', function() {
+    const currentScroll = window.pageYOffset;
+
+    // Add shadow to navbar on scroll
+    if (currentScroll > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
+    lastScroll = currentScroll;
+  });
+
+  // Intersection Observer for fade-in animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe elements for animation
+  const animateElements = document.querySelectorAll(
+    '.stat, .highlight, .expertise__item, .service, .testimonial, .achievement'
+  );
+
+  animateElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    observer.observe(el);
+  });
+
+  // Animate stat numbers
+  const statNumbers = document.querySelectorAll('.stat__number');
+  const statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(num => {
+    statsObserver.observe(num);
+  });
+}
+
+/**
+ * Initialize fade-in animation styles
+ */
+function initAnimations() {
+  // Add CSS for fade-in animation
+  const style = document.createElement('style');
+  style.textContent = `
+    .fade-in {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+/**
+ * Initialize contact form handling
+ */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Validate form
+      if (validateForm(data)) {
+        // In production, you would send this to a backend endpoint
+        handleFormSubmission(data);
+      }
+    });
+  }
+}
+
+/**
+ * Validate contact form data
+ */
+function validateForm(data) {
+  let isValid = true;
+  const errors = [];
+
+  // Required fields
+  if (!data.name || data.name.trim() === '') {
+    errors.push('Name is required');
+    isValid = false;
+  }
+
+  if (!data.email || data.email.trim() === '') {
+    errors.push('Email is required');
+    isValid = false;
+  } else if (!isValidEmail(data.email)) {
+    errors.push('Please enter a valid email address');
+    isValid = false;
+  }
+
+  if (!data['inquiry-type'] || data['inquiry-type'] === '') {
+    errors.push('Please select an inquiry type');
+    isValid = false;
+  }
+
+  if (!data.message || data.message.trim() === '') {
+    errors.push('Message is required');
+    isValid = false;
+  }
+
+  // Display errors if any
+  if (!isValid) {
+    showFormErrors(errors);
+  }
+
+  return isValid;
+}
+
+/**
+ * Validate email format
+ */
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+/**
+ * Show form validation errors
+ */
+function showFormErrors(errors) {
+  // Remove existing error messages
+  const existingError = document.querySelector('.form__error');
+  if (existingError) {
+    existingError.remove();
+  }
+
+  // Create error message element
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'form__error';
+  errorDiv.style.cssText = `
+    background-color: #fee;
+    color: #c33;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #fcc;
+  `;
+
+  const errorList = document.createElement('ul');
+  errorList.style.cssText = 'margin: 0; padding-left: 1.5rem;';
+
+  errors.forEach(error => {
+    const li = document.createElement('li');
+    li.textContent = error;
+    errorList.appendChild(li);
+  });
+
+  errorDiv.appendChild(errorList);
+
+  // Insert error message at top of form
+  const form = document.getElementById('contact-form');
+  form.insertBefore(errorDiv, form.firstChild);
+
+  // Scroll to error message
+  errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/**
+ * Handle form submission
+ * NOTE: In production, this should send data to a backend endpoint
+ */
+function handleFormSubmission(data) {
+  console.log('Form submitted with data:', data);
+
+  // Show success message
+  showFormSuccess();
+
+  // Reset form
+  document.getElementById('contact-form').reset();
+
+  // In production, you would do something like:
+  /*
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(result => {
+    showFormSuccess();
+    document.getElementById('contact-form').reset();
+  })
+  .catch(error => {
+    showFormErrors(['An error occurred. Please try again later.']);
+  });
+  */
+}
+
+/**
+ * Show form success message
+ */
+function showFormSuccess() {
+  // Remove existing messages
+  const existingMessage = document.querySelector('.form__error, .form__success');
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Create success message
+  const successDiv = document.createElement('div');
+  successDiv.className = 'form__success';
+  successDiv.style.cssText = `
+    background-color: #efe;
+    color: #3a3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #cfc;
+    text-align: center;
+    font-weight: 600;
+  `;
+
+  successDiv.innerHTML = `
+    <p style="margin: 0 0 0.5rem 0; font-size: 1.125rem;">✓ Message sent successfully!</p>
+    <p style="margin: 0; font-weight: 400; font-size: 0.875rem;">Thank you for reaching out. Dana will review your message and respond within 5-7 business days.</p>
+  `;
+
+  // Insert success message at top of form
+  const form = document.getElementById('contact-form');
+  form.insertBefore(successDiv, form.firstChild);
+
+  // Scroll to success message
+  successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Remove success message after 10 seconds
+  setTimeout(() => {
+    successDiv.style.transition = 'opacity 0.5s ease';
+    successDiv.style.opacity = '0';
+    setTimeout(() => successDiv.remove(), 500);
+  }, 10000);
+}
+
+// ========================================
+// Utility Functions
+// ========================================
+
+/**
+ * Debounce function for performance optimization
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+/**
+ * Check if element is in viewport
+ */
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// ========================================
+// Performance Optimization
+// ========================================
+
+// Lazy load images when they come into viewport
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
+  });
+}
