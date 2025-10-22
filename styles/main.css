@@ -27,9 +27,9 @@
   --color-border: #e1e8ed;
   --color-shadow: rgba(26, 41, 71, 0.1);
 
-  /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography - Simplified to single font family for maximum readability */
+  --font-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --font-size-xs: 0.75rem;      /* 12px */
   --font-size-sm: 0.875rem;     /* 14px */
@@ -98,6 +98,21 @@ body {
   background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced focus states for accessibility */
+*:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 /* ========================================
@@ -198,6 +213,28 @@ em {
 }
 
 /* ========================================
+   Accessibility - Skip to Main Content
+   ======================================== */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-to-main:focus {
+  left: 0;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ========================================
    Navigation
    ======================================== */
 .nav {
@@ -226,7 +263,7 @@ em {
 
 .nav__logo {
   font-family: var(--font-serif);
-  font-size: var(--font-size-xl);
+  font-size: 1.5rem; /* 24px - increased from 1.25rem */
   font-weight: 700;
   color: var(--color-primary);
   transition: color var(--transition-fast);
@@ -452,7 +489,7 @@ em {
 
 .hero__image-frame {
   width: 100%;
-  max-width: 500px;
+  max-width: 350px; /* Reduced from 500px for smaller desktop image */
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-xl);
   overflow: hidden;

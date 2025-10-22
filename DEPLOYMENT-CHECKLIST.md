@@ -45,14 +45,22 @@ Use this checklist to ensure everything is ready before launching the site.
 - [ ] Animations work smoothly
 - [ ] Contact form submits successfully
 
-### 6. Testing - Mobile
-- [ ] Test on iPhone (Safari)
-- [ ] Test on Android (Chrome)
-- [ ] Mobile menu opens/closes
-- [ ] All content readable
-- [ ] Form usable on mobile
-- [ ] Images scale correctly
-- [ ] Touch targets adequate size
+### 6. Testing - Mobile (Critical for User Experience)
+- [ ] Test on iPhone (Safari) - Latest iOS version
+- [ ] Test on Android (Chrome) - Latest Android version
+- [ ] Test on older devices (iPhone 8, Android 8+)
+- [ ] Mobile menu opens/closes smoothly
+- [ ] All content readable without horizontal scrolling
+- [ ] Form usable on mobile (fields, dropdowns, buttons)
+- [ ] Images scale correctly and load quickly
+- [ ] Touch targets minimum 44x44px (Apple/Android guidelines)
+- [ ] Text size readable without zooming (minimum 16px)
+- [ ] Buttons and links easily tappable
+- [ ] No text overlap or layout breaks
+- [ ] Test in portrait AND landscape orientations
+- [ ] Test with small screen (320px - iPhone SE)
+- [ ] Test with medium screen (375px - iPhone 12/13)
+- [ ] Test with large screen (414px - iPhone Pro Max)
 
 ### 7. Testing - Tablet
 - [ ] Test on iPad (or browser tablet view)
@@ -67,12 +75,17 @@ Use this checklist to ensure everything is ready before launching the site.
 - [ ] Lighthouse score checked (optional)
 - [ ] All assets loading correctly
 
-### 9. Accessibility
-- [ ] Tab navigation works
-- [ ] Alt text added to images
-- [ ] Color contrast sufficient
-- [ ] Screen reader tested (optional)
-- [ ] Form labels properly associated
+### 9. Accessibility (WCAG 2.1 AA Compliance)
+- [ ] Tab navigation works throughout entire site
+- [ ] Alt text added to ALL images (descriptive and meaningful)
+- [ ] Color contrast meets minimum ratios (4.5:1 for text, 3:1 for large text)
+- [ ] Screen reader tested (VoiceOver on Mac/iOS, NVDA on Windows)
+- [ ] Form labels properly associated with inputs
+- [ ] ARIA labels present where needed
+- [ ] Heading hierarchy correct (H1→H2→H3, no skips)
+- [ ] Focus indicators visible on all interactive elements
+- [ ] No keyboard traps
+- [ ] Skip to main content link present (optional but recommended)
 
 ### 10. SEO
 - [ ] Page title optimized
@@ -104,6 +117,10 @@ Use this checklist to ensure everything is ready before launching the site.
 - [ ] Review analytics (if installed)
 - [ ] Fix any minor issues discovered
 - [ ] Make any requested adjustments
+- [ ] Run Lighthouse audit for performance/accessibility scores
+- [ ] Test on real mobile devices (not just browser emulation)
+- [ ] Monitor mobile vs desktop traffic split
+- [ ] Check for any accessibility complaints or issues
 
 ## ☐ Month 1 Post-Launch
 

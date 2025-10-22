@@ -64,7 +64,11 @@ function initMobileMenu() {
 
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', function() {
+      const isExpanded = navMenu.classList.contains('active');
       navMenu.classList.toggle('active');
+
+      // Update aria-expanded for accessibility
+      navToggle.setAttribute('aria-expanded', !isExpanded);
 
       // Animate hamburger icon
       const icon = navToggle.querySelector('.nav__toggle-icon');
@@ -75,6 +79,7 @@ function initMobileMenu() {
     document.addEventListener('click', function(e) {
       if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
@@ -172,8 +177,25 @@ function initAnimations() {
  */
 function initContactForm() {
   const form = document.getElementById('contact-form');
+  const inquiryTypeSelect = document.getElementById('inquiry-type');
+  const otherInquiryGroup = document.getElementById('other-inquiry-group');
+  const otherInquiryInput = document.getElementById('other-inquiry');
 
   if (form) {
+    // Handle "Other" inquiry type selection
+    if (inquiryTypeSelect && otherInquiryGroup && otherInquiryInput) {
+      inquiryTypeSelect.addEventListener('change', function() {
+        if (this.value === 'other') {
+          otherInquiryGroup.style.display = 'block';
+          otherInquiryInput.required = true;
+        } else {
+          otherInquiryGroup.style.display = 'none';
+          otherInquiryInput.required = false;
+          otherInquiryInput.value = '';
+        }
+      });
+    }
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -214,6 +236,14 @@ function validateForm(data) {
   if (!data['inquiry-type'] || data['inquiry-type'] === '') {
     errors.push('Please select an inquiry type');
     isValid = false;
+  }
+
+  // Validate "other" inquiry field if "Other" is selected
+  if (data['inquiry-type'] === 'other') {
+    if (!data['other-inquiry'] || data['other-inquiry'].trim() === '') {
+      errors.push('Please specify your inquiry type');
+      isValid = false;
+    }
   }
 
   if (!data.message || data.message.trim() === '') {
@@ -337,7 +367,7 @@ function showFormSuccess() {
 
   successDiv.innerHTML = `
     <p style="margin: 0 0 0.5rem 0; font-size: 1.125rem;">✓ Message sent successfully!</p>
-    <p style="margin: 0; font-weight: 400; font-size: 0.875rem;">Thank you for reaching out. Dana will review your message and respond within 5-7 business days.</p>
+    <p style="margin: 0; font-weight: 400; font-size: 0.875rem;">Thank you for reaching out. Dana will review your message and respond within 3-5 business days.</p>
   `;
 
   // Insert success message at top of form

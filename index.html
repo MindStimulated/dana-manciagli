@@ -17,39 +17,41 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <!-- Skip to main content link for keyboard users -->
+    <a href="#hero" class="skip-to-main">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav class="nav" id="navbar">
+    <nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav__container">
-            <a href="#hero" class="nav__logo">Dana Manciagli</a>
-            <ul class="nav__menu" id="nav-menu">
-                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                <li class="nav__item"><a href="#impact" class="nav__link">Impact</a></li>
-                <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                <li class="nav__item"><a href="#resources" class="nav__link">Resources</a></li>
-                <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta">Get In Touch</a></li>
+            <a href="#hero" class="nav__logo" aria-label="Dana Manciagli - Home">Dana Manciagli</a>
+            <ul class="nav__menu" id="nav-menu" role="menubar" aria-label="Site sections">
+                <li class="nav__item" role="none"><a href="#about" class="nav__link" role="menuitem">About</a></li>
+                <li class="nav__item" role="none"><a href="#impact" class="nav__link" role="menuitem">Impact</a></li>
+                <li class="nav__item" role="none"><a href="#services" class="nav__link" role="menuitem">Services</a></li>
+                <li class="nav__item" role="none"><a href="#resources" class="nav__link" role="menuitem">Resources</a></li>
+                <li class="nav__item" role="none"><a href="#contact" class="nav__link nav__link--cta" role="menuitem">Get In Touch</a></li>
             </ul>
-            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
-                <span class="nav__toggle-icon"></span>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav__toggle-icon" aria-hidden="true"></span>
             </button>
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main role="main" aria-label="Main content">
+
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero__container">
             <div class="hero__content">
-                <div class="hero__badge">
-                    <span class="hero__badge-icon">★</span>
-                    <span>Top 10 Job Search Coach in the Nation</span>
-                </div>
-                <h1 class="hero__title">
-                    Dana Manciagli: <span class="hero__title-accent">Fortune 500 Career Expert</span> & Trusted Voice in Job Search Strategy
+                <h1 class="hero__title" id="hero-title">
+                    Dana Manciagli: <span class="hero__title-accent">Trusted Voice in Job Search Strategy and Tactics</span>
                 </h1>
                 <p class="hero__subtitle">
                     Three decades of hiring experience from Microsoft, IBM, and Kodak. Author, speaker, and career strategist who's helped thousands navigate their career journey.
@@ -58,29 +60,29 @@
                     <a href="#contact" class="btn btn--primary">Inquire About Speaking</a>
                     <a href="#about" class="btn btn--secondary">Learn More</a>
                 </div>
-                <div class="hero__credentials">
-                    <div class="credential">
-                        <span class="credential__icon">📚</span>
+                <div class="hero__credentials" role="list" aria-label="Professional credentials">
+                    <div class="credential" role="listitem">
+                        <span class="credential__icon" aria-hidden="true">📚</span>
                         <span class="credential__text">Author</span>
                     </div>
-                    <div class="credential">
-                        <span class="credential__icon">🎤</span>
+                    <div class="credential" role="listitem">
+                        <span class="credential__icon" aria-hidden="true">🎤</span>
                         <span class="credential__text">Keynote Speaker</span>
                     </div>
-                    <div class="credential">
-                        <span class="credential__icon">✍️</span>
-                        <span class="credential__text">Syndicated Columnist</span>
+                    <div class="credential" role="listitem">
+                        <span class="credential__icon" aria-hidden="true">💻</span>
+                        <span class="credential__text">Webinar and Workshop Leader</span>
                     </div>
-                    <div class="credential">
-                        <span class="credential__icon">🏆</span>
-                        <span class="credential__text">Forbes Council</span>
+                    <div class="credential" role="listitem">
+                        <span class="credential__icon" aria-hidden="true">✍️</span>
+                        <span class="credential__text">Syndicated Columnist</span>
                     </div>
                 </div>
             </div>
             <div class="hero__image">
                 <div class="hero__image-frame">
                     <img src="assets/images/dana-manciagli-photo.png"
-                         alt="Dana Manciagli - Professional Photo"
+                         alt="Dana Manciagli, professional headshot wearing business attire with confident expression against navy background"
                          style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
@@ -94,75 +96,37 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about" id="about" aria-labelledby="about-title">
         <div class="about__container">
             <div class="about__content">
                 <div class="section__header">
                     <span class="section__label">Background</span>
-                    <h2 class="section__title">About Dana</h2>
+                    <h2 class="section__title" id="about-title">About Dana</h2>
                 </div>
                 <div class="about__narrative">
                     <p class="about__text about__text--lead">
-                        Dana Manciagli brings over 30 years of Fortune 500 executive experience in global sales and marketing, offering a perspective few career coaches can match: <strong>she's been on the hiring side of the table</strong> at the companies everyone wants to work for.
+                        Dana Manciagli brings over 30 years of Fortune 500 leadership experience in global sales and marketing—and the insider's edge that only comes from sitting on the hiring side of the table.
                     </p>
                     <p class="about__text">
-                        Her distinguished career includes more than a decade as <strong>Worldwide Sales General Manager at Microsoft</strong>, along with leadership roles at IBM, Kodak, and Avery Dennison. She's also navigated the startup world, taking a tech company from early stage through IPO.
+                        She spent over a decade as <strong>Worldwide Sales General Manager at Microsoft</strong> and held executive roles at IBM, Kodak, and Avery Dennison. She's also taken a tech startup from launch to IPO.
                     </p>
                     <p class="about__text">
-                        As the author of <em>"Cut the Crap, Get a Job!"</em> and a nationally-syndicated <strong>Career Mojo columnist</strong> for all Business Journals, Dana has reached millions with her no-nonsense, insider approach to career strategy. Her work has been recognized by Forbes Coaches Council, and she's been named among Seattle's <strong>"Women of Influence."</strong>
+                        Author of <em>Cut the Crap, Get a Job!</em> and the nationally syndicated <strong>Career Mojo columnist</strong>, Dana has reached millions with her direct, real-world career advice. Recognized by the Forbes Coaches Council and named one of Seattle's <strong>Women of Influence</strong>, she's a trusted voice in career strategy.
                     </p>
                     <p class="about__text">
-                        Dana holds an MBA from the prestigious Thunderbird School of Global Management and serves on the board of Junior Achievement. As a breast cancer survivor, she brings resilience, empathy, and determination to everything she does.
+                        Armed with an MBA from Thunderbird School of Global Management, extensive non-profit experience, and the strength of a three-time breast cancer survivor, Dana leads with resilience, empathy, and results.
                     </p>
-                </div>
-
-                <div class="about__timeline">
-                    <h3 class="about__timeline-title">Career Milestones</h3>
-                    <div class="timeline">
-                        <div class="timeline__item">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4 class="timeline__title">Microsoft</h4>
-                                <p class="timeline__role">Worldwide Sales General Manager</p>
-                                <p class="timeline__description">10+ years leading global sales strategy</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4 class="timeline__title">IBM, Kodak, Avery Dennison</h4>
-                                <p class="timeline__role">Executive Leadership Roles</p>
-                                <p class="timeline__description">Global sales and marketing expertise</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4 class="timeline__title">Tech Startup</h4>
-                                <p class="timeline__role">Early Stage → IPO</p>
-                                <p class="timeline__description">Navigated complete growth lifecycle</p>
-                            </div>
-                        </div>
-                        <div class="timeline__item">
-                            <div class="timeline__marker"></div>
-                            <div class="timeline__content">
-                                <h4 class="timeline__title">Career Strategist & Author</h4>
-                                <p class="timeline__role">Present</p>
-                                <p class="timeline__description">Helping thousands achieve career success</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Impact Section -->
-    <section class="impact" id="impact">
+    <section class="impact" id="impact" aria-labelledby="impact-title">
         <div class="impact__container">
             <div class="section__header section__header--centered">
                 <span class="section__label">The Impact</span>
-                <h2 class="section__title">A Legacy of Results</h2>
+                <h2 class="section__title" id="impact-title">A Legacy of Results</h2>
                 <p class="section__description">
                     Three decades of expertise translated into measurable impact for professionals at every career stage.
                 </p>
@@ -187,33 +151,9 @@
                 </div>
             </div>
 
-            <div class="impact__highlights">
-                <div class="highlight">
-                    <div class="highlight__icon">🎯</div>
-                    <h3 class="highlight__title">Job Search Master Class®</h3>
-                    <p class="highlight__description">
-                        Created comprehensive training program helping veterans, military spouses, and job seekers nationwide land their dream roles.
-                    </p>
-                </div>
-                <div class="highlight">
-                    <div class="highlight__icon">✍️</div>
-                    <h3 class="highlight__title">National Columnist</h3>
-                    <p class="highlight__description">
-                        Syndicated "Career Mojo" column reaching millions through Business Journals, providing weekly career guidance.
-                    </p>
-                </div>
-                <div class="highlight">
-                    <div class="highlight__icon">🎓</div>
-                    <h3 class="highlight__title">Executive to C-Suite</h3>
-                    <p class="highlight__description">
-                        Coached professionals from college graduates to C-suite executives across diverse industries and career stages.
-                    </p>
-                </div>
-            </div>
-
             <!-- Testimonials -->
             <div class="testimonials">
-                <h3 class="testimonials__title">What People Say</h3>
+                <h3 class="testimonials__title">What Clients Say</h3>
                 <div class="testimonial-grid">
                     <div class="testimonial">
                         <div class="testimonial__quote">
@@ -248,11 +188,11 @@
     </section>
 
     <!-- Expertise Section -->
-    <section class="expertise" id="expertise">
+    <section class="expertise" id="expertise" aria-labelledby="expertise-title">
         <div class="expertise__container">
             <div class="section__header">
                 <span class="section__label">Expertise</span>
-                <h2 class="section__title">Areas of Specialization</h2>
+                <h2 class="section__title" id="expertise-title">Areas of Specialization</h2>
                 <p class="section__description">
                     Drawing on three decades of Fortune 500 leadership and thousands of coaching engagements.
                 </p>
@@ -266,18 +206,18 @@
                 </div>
                 <div class="expertise__item">
                     <div class="expertise__icon">🎯</div>
-                    <h3 class="expertise__title">Job Search & Interview Mastery</h3>
-                    <p class="expertise__description">Proven techniques from the hiring side of Fortune 500 companies that actually get results.</p>
+                    <h3 class="expertise__title">Job Search Steps</h3>
+                    <p class="expertise__description">Proven job search techniques from the hiring side of Fortune 500 companies that actually get results.</p>
+                </div>
+                <div class="expertise__item">
+                    <div class="expertise__icon">💼</div>
+                    <h3 class="expertise__title">Interview Mastery</h3>
+                    <p class="expertise__description">Master the interview process with insider knowledge of how hiring managers evaluate candidates.</p>
                 </div>
                 <div class="expertise__item">
                     <div class="expertise__icon">🔍</div>
                     <h3 class="expertise__title">Corporate Hiring Insights</h3>
                     <p class="expertise__description">Inside knowledge of how hiring decisions are really made at the world's leading companies.</p>
-                </div>
-                <div class="expertise__item">
-                    <div class="expertise__icon">🚀</div>
-                    <h3 class="expertise__title">Leadership Development</h3>
-                    <p class="expertise__description">Building leadership skills and executive presence that drive career advancement.</p>
                 </div>
                 <div class="expertise__item">
                     <div class="expertise__icon">🔄</div>
@@ -286,7 +226,7 @@
                 </div>
                 <div class="expertise__item">
                     <div class="expertise__icon">📝</div>
-                    <h3 class="expertise__title">Resume & Personal Branding</h3>
+                    <h3 class="expertise__title">Résumé and LinkedIn Profile Writing</h3>
                     <p class="expertise__description">Creating compelling professional narratives that stand out to hiring managers.</p>
                 </div>
                 <div class="expertise__item">
@@ -304,11 +244,11 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services" id="services" aria-labelledby="services-title">
         <div class="services__container">
             <div class="section__header section__header--centered">
                 <span class="section__label">Availability</span>
-                <h2 class="section__title">Available For Select Engagements</h2>
+                <h2 class="section__title" id="services-title">Available For Select Engagements</h2>
                 <p class="section__description">
                     Dana accepts a limited number of speaking and consulting engagements throughout the year.
                 </p>
@@ -347,24 +287,6 @@
                         <li>Professional association events</li>
                     </ul>
                 </div>
-
-                <div class="service">
-                    <div class="service__header">
-                        <div class="service__icon">🎯</div>
-                        <h3 class="service__title">Private Consultation</h3>
-                    </div>
-                    <p class="service__description">
-                        Limited availability for strategic career advisory engagements with senior professionals and executives.
-                    </p>
-                    <ul class="service__topics">
-                        <li>Executive career coaching</li>
-                        <li>Strategic career advisory</li>
-                        <li>Leadership transition guidance</li>
-                    </ul>
-                    <div class="service__note">
-                        <em>Limited availability</em>
-                    </div>
-                </div>
             </div>
 
             <div class="services__cta">
@@ -376,60 +298,20 @@
         </div>
     </section>
 
-    <!-- Featured In Section -->
-    <section class="featured" id="featured">
-        <div class="featured__container">
-            <div class="section__header section__header--centered">
-                <span class="section__label">Recognition</span>
-                <h2 class="section__title">Featured In & Credentials</h2>
-            </div>
-
-            <div class="featured__logos">
-                <div class="featured__logo">Forbes Coaches Council</div>
-                <div class="featured__logo">Business Journals</div>
-                <div class="featured__logo">Wonder Women Tech</div>
-                <div class="featured__logo">Seattle Women of Influence</div>
-                <div class="featured__logo">Junior Achievement Board</div>
-                <div class="featured__logo">Thunderbird MBA</div>
-            </div>
-
-            <div class="achievements">
-                <div class="achievement">
-                    <span class="achievement__icon">🏆</span>
-                    <span class="achievement__text">Top 10 Job Search Coach in the Nation</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement__icon">📰</span>
-                    <span class="achievement__text">Nationally-Syndicated Career Columnist</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement__icon">👑</span>
-                    <span class="achievement__text">Seattle's "Women of Influence"</span>
-                </div>
-                <div class="achievement">
-                    <span class="achievement__icon">💡</span>
-                    <span class="achievement__text">Forbes Coaches Council Member</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Resources Section -->
-    <section class="resources" id="resources">
+    <section class="resources" id="resources" aria-labelledby="resources-title">
         <div class="resources__container">
             <div class="section__header section__header--centered">
                 <span class="section__label">Published Work</span>
-                <h2 class="section__title">Books & Resources</h2>
+                <h2 class="section__title" id="resources-title">Books & Resources</h2>
             </div>
 
             <div class="resources__featured">
                 <div class="book">
                     <div class="book__cover">
-                        <!-- Replace with actual book cover -->
-                        <div class="book__cover-placeholder">
-                            <p>Book Cover</p>
-                            <p class="book__cover-note">Add book-cover.jpg to assets/images/</p>
-                        </div>
+                        <img src="assets/images/cut-the-crap-dana-paperback.png"
+                             alt="Cut the Crap, Get a Job! book cover - A New Job Search Process for a New Era by Dana Manciagli, featuring bold typography on professional design"
+                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="book__details">
                         <h3 class="book__title">"Cut the Crap, Get a Job!"</h3>
@@ -458,32 +340,40 @@
 
             <div class="resources__grid">
                 <div class="resource">
-                    <div class="resource__icon">📰</div>
-                    <h3 class="resource__title">Career Mojo Column</h3>
+                    <div class="resource__icon">📝</div>
+                    <h3 class="resource__title">Free Career Advice Blog</h3>
                     <p class="resource__description">
-                        Weekly syndicated column featured in Business Journals nationwide, offering practical career advice and job search strategies.
+                        Access practical career advice, job search strategies, and professional development insights from Dana's decades of experience.
                     </p>
-                    <a href="#" class="resource__link">Read the Archive →</a>
+                    <a href="#" class="resource__link">Read the Blog →</a>
                 </div>
                 <div class="resource">
-                    <div class="resource__icon">📥</div>
-                    <h3 class="resource__title">Free Networking Guide</h3>
+                    <div class="resource__icon">📚</div>
+                    <h3 class="resource__title">Free E-Book</h3>
                     <p class="resource__description">
-                        Download Dana's guide to the "Top 10 Networking Bloopers" and learn how to network effectively without the common mistakes.
+                        Download Dana's free e-book with essential career strategies and job search tips to accelerate your professional journey.
                     </p>
-                    <a href="#" class="resource__link">Download Free Guide →</a>
+                    <a href="#" class="resource__link">Download E-Book →</a>
+                </div>
+                <div class="resource">
+                    <div class="resource__icon">🎯</div>
+                    <h3 class="resource__title">Free Job Fair Toolkit</h3>
+                    <p class="resource__description">
+                        Get Dana's comprehensive job fair toolkit with proven strategies to maximize your success at career events.
+                    </p>
+                    <a href="#" class="resource__link">Download Toolkit →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="contact__container">
             <div class="contact__content">
                 <div class="section__header">
                     <span class="section__label">Get In Touch</span>
-                    <h2 class="section__title">Let's Connect</h2>
+                    <h2 class="section__title" id="contact-title">Let's Connect</h2>
                     <p class="section__description">
                         Interested in speaking engagements, consulting, or media inquiries? Please reach out using the form below.
                     </p>
@@ -494,7 +384,7 @@
                         <div class="contact__info-icon">📧</div>
                         <div class="contact__info-content">
                             <h4 class="contact__info-title">Email</h4>
-                            <a href="mailto:dana@example.com" class="contact__info-link">dana@example.com</a>
+                            <a href="mailto:Dana@Danamanciagli.com" class="contact__info-link">Dana@Danamanciagli.com</a>
                         </div>
                     </div>
                     <div class="contact__info-item">
@@ -512,6 +402,11 @@
                     <div class="form__group">
                         <label for="name" class="form__label">Name *</label>
                         <input type="text" id="name" name="name" class="form__input" required>
+                    </div>
+
+                    <div class="form__group">
+                        <label for="title" class="form__label">Title</label>
+                        <input type="text" id="title" name="title" class="form__input">
                     </div>
 
                     <div class="form__group">
@@ -535,10 +430,14 @@
                             <option value="">Please select...</option>
                             <option value="speaking">Speaking Engagement</option>
                             <option value="webinar">Webinar/Workshop</option>
-                            <option value="consultation">Private Consultation</option>
                             <option value="media">Media Inquiry</option>
                             <option value="other">Other</option>
                         </select>
+                    </div>
+
+                    <div class="form__group form__group--full" id="other-inquiry-group" style="display: none;">
+                        <label for="other-inquiry" class="form__label">Please specify *</label>
+                        <input type="text" id="other-inquiry" name="other-inquiry" class="form__input">
                     </div>
 
                     <div class="form__group form__group--full">
@@ -549,15 +448,18 @@
                     <button type="submit" class="btn btn--primary btn--full">Send Message</button>
 
                     <p class="form__note">
-                        * Due to volume, Dana responds to inquiries on a selective basis. Please allow 5-7 business days for a response.
+                        * Due to volume, Dana responds to inquiries within 3-5 business days.
                     </p>
                 </form>
             </div>
         </div>
     </section>
 
+    </main>
+    <!-- End Main Content -->
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
         <div class="footer__container">
             <div class="footer__content">
                 <div class="footer__brand">
