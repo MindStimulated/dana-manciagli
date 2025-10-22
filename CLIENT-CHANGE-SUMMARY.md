@@ -149,11 +149,17 @@ survivor, Dana leads with resilience, empathy, and results.
 
 #### Resource Cards - REPLACED ALL:
 
+**Book Purchase Links** (lines 336-380):
+- ✅ Amazon Paperback: https://www.amazon.com/Cut-Crap-Get-Search-Process/dp/1935953478/
+- ✅ Amazon Kindle: https://www.amazon.com/Cut-Crap-Search-Process-ebook/dp/B00CAX5GR2/
+- ✅ Audible Audiobook: https://www.audible.com/pd/Cut-the-Crap-Get-a-Job-Audiobook/B00MU0OPFO
+- ✅ Smashwords eBook: https://www.smashwords.com/books/view/304654
+
 **REMOVED**:
 - Career Mojo Column
 - Free Networking Guide
 
-**ADDED** (lines 342-365):
+**ADDED** (lines 384-407):
 1. **Free Career Advice Blog** 📝
    - Description: Access practical career advice, job search strategies, and professional development insights
 
@@ -239,7 +245,7 @@ survivor, Dana leads with resilience, empathy, and results.
 
 ### High Priority - Client Input Needed:
 1. ⚠️ **External Links** - Need actual URLs for:
-   - Book purchase link (currently placeholder `#`)
+   - ✅ Book purchase links (COMPLETED - 4 platforms added)
    - Free Career Advice Blog link
    - Free E-Book download link
    - Free Job Fair Toolkit link
@@ -329,9 +335,9 @@ survivor, Dana leads with resilience, empathy, and results.
 
 ## ✅ SUMMARY
 
-**Total Changes Made**: 60+
+**Total Changes Made**: 65+
 **Sections Modified**: 9 out of 9
-**New Features Added**: 6 (conditional form field, skip link, enhanced focus, new resources, updated typography, screen reader optimization)
+**New Features Added**: 7 (conditional form field, skip link, enhanced focus, new resources, updated typography, screen reader optimization, book purchase links)
 **Sections Removed**: 2 (Recognition section, Career Milestones)
 **Accessibility Score**: Significantly improved with full ARIA implementation
 **Screen Reader Support**: ✅ Fully optimized for audio transcription

@@ -126,6 +126,11 @@
 - ✅ **Title**: "Cut the Crap, Get a Job!"
 - ✅ **Book Cover**: Updated to `cut-the-crap-dana-paperback.png`
 - ✅ **Alt Text**: Fully descriptive for accessibility
+- ✅ **Purchase Links**: Added 4 platform-specific links with icons:
+  - Amazon Paperback
+  - Amazon Kindle Edition
+  - Audible Audiobook
+  - Smashwords eBook
 
 #### Resource Cards - REPLACED ALL:
 
@@ -255,7 +260,7 @@
 ## ⚠️ PENDING ITEMS (Client Action Required)
 
 ### High Priority - Need URLs:
-1. ⚠️ **Book purchase link** (currently placeholder `#`)
+1. ✅ **Book purchase links** (COMPLETED - 4 platforms added)
 2. ⚠️ **Free Career Advice Blog link**
 3. ⚠️ **Free E-Book download link**
 4. ⚠️ **Free Job Fair Toolkit link**
