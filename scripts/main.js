@@ -213,15 +213,37 @@ function initContactForm() {
 }
 
 /**
+ * Sanitize user input to prevent XSS attacks
+ */
+function sanitizeInput(input) {
+  if (typeof input !== 'string') return input;
+
+  // Create a temporary element to use browser's built-in sanitization
+  const temp = document.createElement('div');
+  temp.textContent = input;
+  return temp.innerHTML;
+}
+
+/**
  * Validate contact form data
  */
 function validateForm(data) {
   let isValid = true;
   const errors = [];
 
+  // Sanitize all input fields
+  Object.keys(data).forEach(key => {
+    if (typeof data[key] === 'string') {
+      data[key] = sanitizeInput(data[key]);
+    }
+  });
+
   // Required fields
   if (!data.name || data.name.trim() === '') {
     errors.push('Name is required');
+    isValid = false;
+  } else if (data.name.length > 100) {
+    errors.push('Name must be less than 100 characters');
     isValid = false;
   }
 
@@ -230,6 +252,9 @@ function validateForm(data) {
     isValid = false;
   } else if (!isValidEmail(data.email)) {
     errors.push('Please enter a valid email address');
+    isValid = false;
+  } else if (data.email.length > 254) {
+    errors.push('Email address is too long');
     isValid = false;
   }
 
@@ -243,11 +268,17 @@ function validateForm(data) {
     if (!data['other-inquiry'] || data['other-inquiry'].trim() === '') {
       errors.push('Please specify your inquiry type');
       isValid = false;
+    } else if (data['other-inquiry'].length > 200) {
+      errors.push('Inquiry specification is too long');
+      isValid = false;
     }
   }
 
   if (!data.message || data.message.trim() === '') {
     errors.push('Message is required');
+    isValid = false;
+  } else if (data.message.length > 5000) {
+    errors.push('Message is too long (maximum 5000 characters)');
     isValid = false;
   }
 
