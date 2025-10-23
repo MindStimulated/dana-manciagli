@@ -63,23 +63,40 @@ function initMobileMenu() {
   const navMenu = document.getElementById('nav-menu');
 
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function() {
+    // Toggle menu open/closed
+    const toggleMenu = function(shouldClose = false) {
       const isExpanded = navMenu.classList.contains('active');
-      navMenu.classList.toggle('active');
 
-      // Update aria-expanded for accessibility
-      navToggle.setAttribute('aria-expanded', !isExpanded);
+      if (shouldClose || isExpanded) {
+        navMenu.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        const icon = navToggle.querySelector('.nav__toggle-icon');
+        if (icon) icon.classList.remove('active');
+      } else {
+        navMenu.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
+        const icon = navToggle.querySelector('.nav__toggle-icon');
+        if (icon) icon.classList.add('active');
+      }
+    };
 
-      // Animate hamburger icon
-      const icon = navToggle.querySelector('.nav__toggle-icon');
-      icon.classList.toggle('active');
+    // Click to toggle
+    navToggle.addEventListener('click', function() {
+      toggleMenu();
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', function(e) {
       if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        navMenu.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
+        toggleMenu(true);
+      }
+    });
+
+    // Close menu with Escape key (WCAG 2.1 AA - Keyboard Accessible)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        toggleMenu(true);
+        navToggle.focus(); // Return focus to toggle button
       }
     });
   }
@@ -308,9 +325,12 @@ function showFormErrors(errors) {
     existingError.remove();
   }
 
-  // Create error message element
+  // Create error message element with ARIA live region
   const errorDiv = document.createElement('div');
   errorDiv.className = 'form__error';
+  errorDiv.setAttribute('role', 'alert');
+  errorDiv.setAttribute('aria-live', 'assertive');
+  errorDiv.setAttribute('aria-atomic', 'true');
   errorDiv.style.cssText = `
     background-color: #fee;
     color: #c33;
@@ -337,6 +357,12 @@ function showFormErrors(errors) {
 
   // Scroll to error message
   errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Focus on first error for keyboard users
+  const firstInput = form.querySelector('.form__input:invalid, .form__select:invalid');
+  if (firstInput) {
+    setTimeout(() => firstInput.focus(), 100);
+  }
 }
 
 /**
@@ -382,9 +408,12 @@ function showFormSuccess() {
     existingMessage.remove();
   }
 
-  // Create success message
+  // Create success message with ARIA live region
   const successDiv = document.createElement('div');
   successDiv.className = 'form__success';
+  successDiv.setAttribute('role', 'status');
+  successDiv.setAttribute('aria-live', 'polite');
+  successDiv.setAttribute('aria-atomic', 'true');
   successDiv.style.cssText = `
     background-color: #efe;
     color: #3a3;
@@ -407,6 +436,10 @@ function showFormSuccess() {
 
   // Scroll to success message
   successDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Focus on success message for screen reader announcement
+  successDiv.setAttribute('tabindex', '-1');
+  setTimeout(() => successDiv.focus(), 100);
 
   // Remove success message after 10 seconds
   setTimeout(() => {
