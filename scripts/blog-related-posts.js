@@ -79,19 +79,28 @@
   function makeRelatedCardsClickable() {
     const relatedCards = document.querySelectorAll('.related-post-card');
     relatedCards.forEach(card => {
+      // Remove any existing click handlers to prevent duplicates
+      const newCard = card.cloneNode(true);
+      card.parentNode.replaceChild(newCard, card);
+
       // Add cursor pointer style
-      card.style.cursor = 'pointer';
+      newCard.style.cursor = 'pointer';
 
       // Add click handler
-      card.addEventListener('click', function(e) {
-        // Don't trigger if clicking on a link
-        if (e.target.tagName === 'A' || e.target.closest('a')) {
+      newCard.addEventListener('click', function(e) {
+        // Don't trigger if clicking directly on a link or button
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' ||
+            e.target.closest('a') || e.target.closest('button')) {
           return;
         }
 
         // Find the main link in the card
         const link = this.querySelector('.related-post-card__title a');
         if (link) {
+          // Prevent default to avoid any conflicts
+          e.preventDefault();
+          e.stopPropagation();
+          // Navigate to the link
           window.location.href = link.getAttribute('href');
         }
       });

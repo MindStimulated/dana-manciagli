@@ -14,7 +14,7 @@
 .blog-search__input {
   width: 100%;
   padding: 0.75rem 3rem 0.75rem 1rem;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   border: 2px solid #d1d5db;
   border-radius: 50px;
   background: #ffffff;
@@ -200,7 +200,7 @@ mark {
 
   .blog-search__input {
     padding: 0.875rem 3rem 0.875rem 1.25rem;
-    font-size: 0.9375rem;
+    font-size: 1rem;
   }
 
   .search-results-message {
