@@ -148,12 +148,13 @@ function initScrollEffects() {
     observer.observe(el);
   });
 
-  // Animate stat numbers
+  // Animate stat numbers with count-up effect
   const statNumbers = document.querySelectorAll('.stat__number');
   const statsObserver = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate');
+        animateStatNumber(entry.target);
         statsObserver.unobserve(entry.target);
       }
     });
@@ -162,6 +163,62 @@ function initScrollEffects() {
   statNumbers.forEach(num => {
     statsObserver.observe(num);
   });
+}
+
+/**
+ * Animate stat numbers with count-up effect
+ */
+function animateStatNumber(element) {
+  const text = element.textContent;
+  const hasPlus = text.includes('+');
+  const hasComma = text.includes(',');
+  const targetNumber = parseInt(text.replace(/[^0-9]/g, ''), 10);
+
+  if (isNaN(targetNumber)) return;
+
+  const duration = 2000; // 2 seconds
+  const startTime = Date.now();
+  const step = targetNumber / (duration / 16); // 60fps
+
+  let currentNumber = 0;
+
+  function updateNumber() {
+    const elapsed = Date.now() - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    // Easing function for smooth animation
+    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+    currentNumber = Math.floor(targetNumber * easeOutQuart);
+
+    // Format number with comma if original had comma
+    let displayNumber = currentNumber.toString();
+    if (hasComma && currentNumber >= 1000) {
+      displayNumber = currentNumber.toLocaleString();
+    }
+
+    // Add plus if original had plus
+    if (hasPlus) {
+      displayNumber += '+';
+    }
+
+    element.textContent = displayNumber;
+
+    if (progress < 1) {
+      requestAnimationFrame(updateNumber);
+    } else {
+      // Ensure final number matches exactly
+      let finalDisplay = targetNumber.toString();
+      if (hasComma) {
+        finalDisplay = targetNumber.toLocaleString();
+      }
+      if (hasPlus) {
+        finalDisplay += '+';
+      }
+      element.textContent = finalDisplay;
+    }
+  }
+
+  updateNumber();
 }
 
 /**

@@ -10,10 +10,56 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 
-    <meta name="description" content="Career advice blog by Dana Manciagli - Fortune 500 insider insights on job search, career advancement, and professional development">
+    <!-- Primary SEO Meta Tags -->
+    <title>Career Advice Blog - Fortune 500 Insights | Dana Manciagli</title>
+    <meta name="title" content="Career Advice Blog - Fortune 500 Insights | Dana Manciagli">
+    <meta name="description" content="Expert career advice from a Fortune 500 insider. Get practical strategies for job search, interviews, networking, salary negotiation, and career advancement.">
+    <meta name="keywords" content="career advice, job search, fortune 500, resume tips, interview tips, networking, salary negotiation, career growth, professional development">
     <meta name="author" content="Dana Manciagli">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.danamanciagli.com/blog.html">
 
-    <title>Career Advice Blog - Dana Manciagli</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.danamanciagli.com/blog.html">
+    <meta property="og:title" content="Career Advice Blog | Dana Manciagli">
+    <meta property="og:description" content="Expert career advice from a Fortune 500 insider with 30+ years of experience at Microsoft, IBM, and Kodak.">
+    <meta property="og:image" content="https://www.danamanciagli.com/assets/images/blog-cover.jpg">
+    <meta property="og:site_name" content="Dana Manciagli">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.danamanciagli.com/blog.html">
+    <meta property="twitter:title" content="Career Advice Blog | Dana Manciagli">
+    <meta property="twitter:description" content="Expert career advice from a Fortune 500 insider with 30+ years of experience.">
+    <meta property="twitter:image" content="https://www.danamanciagli.com/assets/images/blog-cover.jpg">
+    <meta name="twitter:creator" content="@danamanciagli">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Dana Manciagli Career Advice Blog",
+        "description": "Fortune 500 insider insights on job search, career advancement, and professional development",
+        "url": "https://www.danamanciagli.com/blog.html",
+        "author": {
+            "@type": "Person",
+            "name": "Dana",
+            "url": "https://www.danamanciagli.com",
+            "description": "Career strategist, Fortune 500 executive, and author with 30+ years of corporate experience at Microsoft, IBM, and Kodak."
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Dana Manciagli",
+            "url": "https://www.danamanciagli.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.danamanciagli.com/assets/images/logo.png"
+            }
+        }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +68,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/blog-search.css">
 </head>
 <body>
     <!-- Skip to main content link for keyboard users -->
@@ -54,28 +101,39 @@
                     <p class="blog-page__subtitle">Fortune 500 insider insights on job search, career advancement, and professional development</p>
                 </div>
 
-                <div class="blog-grid">
+                <!-- Search Bar (placeholder for future implementation) -->
+                <div class="blog-search">
+                    <input type="search" id="blog-search-input" class="blog-search__input" placeholder="Search blog posts..." aria-label="Search blog posts">
+                    <button type="button" class="blog-search__button" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="blog-grid" id="blog-grid">
                     <!-- Blog Post 1 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="apply-interview" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/The Hidden Truth About Networking at Fortune 500 Companies.jpeg" alt="The Hidden Truth About Networking at Fortune 500 Companies" />
-                            <span class="blog-card__category-badge">Networking</span>
+                            <img src="assets/images/blog/how-to-manage-the-paycheck-from-your-first-big-job.png" alt="How to Manage the Paycheck from Your First Big Job" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">March 15, 2025</span>
-                                <span class="blog-card__reading-time">5 min read</span>
+                                <span class="blog-card__date">January 25, 2021</span>
+                                <span class="blog-card__reading-time">3 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-1.html">The Hidden Truth About Networking at Fortune 500 Companies</a>
+                                <a href="blog-post-1.html">How to Manage the Paycheck from Your First Big Job</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                After 30 years in corporate America, I've seen what actually works when it comes to building professional relationships that lead to opportunities. Here's what hiring managers won't tell you.
+                                Whether you are a recent college graduate or someone finally breaking into the career of your dreams, getting your first big job is a big deal! Handli...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-1.html" class="blog-card__link">Read →</a>
                             </div>
@@ -83,26 +141,26 @@
                     </article>
 
                     <!-- Blog Post 2 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="uncategorized" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/How to Navigate Your First 90 Days at a New Job.jpeg" alt="How to Navigate Your First 90 Days at a New Job" />
-                            <span class="blog-card__category-badge">Career Growth</span>
+                            <img src="assets/images/blog/quiz-job-seekers-are-you-truly-committed-or-dabbling.png" alt="Photo of a person thinking" loading="lazy" />
+                            <span class="blog-card__category-badge">Uncategorized</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">March 10, 2025</span>
-                                <span class="blog-card__reading-time">6 min read</span>
+                                <span class="blog-card__date">November 12, 2020</span>
+                                <span class="blog-card__reading-time">1 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-2.html">How to Navigate Your First 90 Days at a New Job</a>
+                                <a href="blog-post-2.html">Quiz: Job Seekers: Are you Truly Committed or Dabbling?</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                The first three months at a new company can make or break your trajectory. Learn the strategic approach I've coached executives to use when starting at Fortune 500 companies.
+                                ...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-2.html" class="blog-card__link">Read →</a>
                             </div>
@@ -110,26 +168,26 @@
                     </article>
 
                     <!-- Blog Post 3 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="apply-interview" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/Interview Red Flags When to Walk Away from a Job Offer.jpeg" alt="Interview Red Flags When to Walk Away from a Job Offer" />
-                            <span class="blog-card__category-badge">Interviews</span>
+                            <img src="assets/images/blog/recent-college-grads-learn-to-manage-your-finances.png" alt="Photo of a college grad reading a bill" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">March 5, 2025</span>
-                                <span class="blog-card__reading-time">5 min read</span>
+                                <span class="blog-card__date">September 21, 2020</span>
+                                <span class="blog-card__reading-time">3 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-3.html">Interview Red Flags: When to Walk Away from a Job Offer</a>
+                                <a href="blog-post-3.html">Recent College Grads! Learn to Manage Your Finances</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Not every job offer is worth accepting. From the hiring side of the table, I've identified warning signs that should make you think twice before saying yes.
+                                Life post-graduation can be complicated to navigate. With a completely new lifestyle to adjust to, and an entirely new set of challenges to deal with,...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-3.html" class="blog-card__link">Read →</a>
                             </div>
@@ -137,26 +195,26 @@
                     </article>
 
                     <!-- Blog Post 4 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="apply-interview" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/The Art of Negotiating Your Salary From the Hiring Managers Perspective.jpeg" alt="The Art of Negotiating Your Salary" />
-                            <span class="blog-card__category-badge">Salary Negotiation</span>
+                            <img src="assets/images/blog/accelerate-your-job-search-during-covid-19.png" alt="Photo of a woman punching a boxing bag" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 28, 2025</span>
-                                <span class="blog-card__reading-time">6 min read</span>
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-4.html">The Art of Negotiating Your Salary (From the Hiring Manager's Perspective)</a>
+                                <a href="blog-post-4.html">Accelerate Your Job Search During COVID-19</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Having made thousands of offers at Microsoft, IBM, and Kodak, I know exactly what works in salary negotiations. Here's the insider playbook candidates never see.
+                                As a global job search coach, I get daily questions about job searching during this unpredictable time: Should I stop job searching due to COVID-19? A...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-4.html" class="blog-card__link">Read →</a>
                             </div>
@@ -164,26 +222,26 @@
                     </article>
 
                     <!-- Blog Post 5 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="career-management" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/LinkedIn Profile Mistakes That Cost You Interviews.jpeg" alt="LinkedIn Profile Mistakes That Cost You Interviews" />
-                            <span class="blog-card__category-badge">LinkedIn</span>
+                            <img src="assets/images/blog/what-do-you-want-to-be-when-you-grow-up.png" alt="Photo of lights hanging" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 22, 2025</span>
-                                <span class="blog-card__reading-time">5 min read</span>
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">4 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-5.html">LinkedIn Profile Mistakes That Cost You Interviews</a>
+                                <a href="blog-post-5.html">What do you Want to Be When You Grow Up?</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Your LinkedIn profile is often the first impression you make on recruiters and hiring managers. These common mistakes could be costing you opportunities without you even knowing it.
+                                During my years of coaching job-seekers, the #1 hardest thing for each candidate to answer was, “What is your job or career goal? Simply put, “What ar...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-5.html" class="blog-card__link">Read →</a>
                             </div>
@@ -191,26 +249,26 @@
                     </article>
 
                     <!-- Blog Post 6 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="apply-interview" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/Why Your Resume Isn't Getting Past ATS Systems.jpeg" alt="Why Your Resume Isn't Getting Past ATS Systems" />
-                            <span class="blog-card__category-badge">Resume Tips</span>
+                            <img src="assets/images/blog/how-to-crush-the-4-most-common-job-interview-questions.png" alt="Photo of a group interview" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 18, 2025</span>
+                                <span class="blog-card__date">August 23, 2020</span>
                                 <span class="blog-card__reading-time">5 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-6.html">Why Your Resume Isn't Getting Past ATS Systems</a>
+                                <a href="blog-post-6.html">How to Crush the 4 Most Common Job Interview Questions</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Over 90% of Fortune 500 companies use Applicant Tracking Systems. If your resume isn't optimized for ATS, it may never reach human eyes. Here's how to fix that.
+                                It’s a new world out there, but you already know that. What this means for job seekers is that the competitive battle for every job will be fierce. No...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-6.html" class="blog-card__link">Read →</a>
                             </div>
@@ -218,26 +276,26 @@
                     </article>
 
                     <!-- Blog Post 7 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="networking" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/Career Transitions Successfully Pivoting Industries After 40.jpeg" alt="Career Transitions Successfully Pivoting Industries After 40" />
-                            <span class="blog-card__category-badge">Career Transitions</span>
+                            <img src="assets/images/blog/top-types-of-networking-bloopers-to-avoid-part-three.png" alt="Photo of two people talking in an office" loading="lazy" />
+                            <span class="blog-card__category-badge">Networking</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 12, 2025</span>
-                                <span class="blog-card__reading-time">6 min read</span>
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-7.html">Career Transitions: Successfully Pivoting Industries After 40</a>
+                                <a href="blog-post-7.html">Top Types of Networking Bloopers to Avoid (Part Three)</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Changing industries mid-career isn't impossible—I've coached hundreds through this transition. The key is positioning your transferable skills strategically.
+                                As a professional career, job search and networking coach, I admit I have a high bar. I have an eagle eye for both great networking and poor networkin...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-7.html" class="blog-card__link">Read →</a>
                             </div>
@@ -245,26 +303,26 @@
                     </article>
 
                     <!-- Blog Post 8 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="career-management" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/The Modern Job Search What Changed in 2025.jpeg" alt="The Modern Job Search What Changed in 2025" />
-                            <span class="blog-card__category-badge">Job Search</span>
+                            <img src="assets/images/blog/top-types-of-networking-bloopers-to-avoid-part-two.png" alt="Photo of a woman" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 8, 2025</span>
+                                <span class="blog-card__date">August 23, 2020</span>
                                 <span class="blog-card__reading-time">5 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-8.html">The Modern Job Search: What Changed in 2025</a>
+                                <a href="blog-post-8.html">Top Types of Networking Bloopers to Avoid (Part Two)</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                The job search landscape has evolved dramatically. AI screening, remote work expectations, and new interview formats require a fresh approach to landing your next role.
+                                "Networking isn't natural to me." "Networking is phony.” "I'm an introvert, so I can't network." "It's not part of my culture." Folks, networking is s...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-8.html" class="blog-card__link">Read →</a>
                             </div>
@@ -272,26 +330,26 @@
                     </article>
 
                     <!-- Blog Post 9 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="apply-interview" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/Building Executive Presence in Virtual Meetings.jpeg" alt="Building Executive Presence in Virtual Meetings" />
-                            <span class="blog-card__category-badge">Leadership</span>
+                            <img src="assets/images/blog/how-to-stand-out-in-a-group-interview.png" alt="Photo of a group interview" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">February 2, 2025</span>
-                                <span class="blog-card__reading-time">5 min read</span>
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">3 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-9.html">Building Executive Presence in Virtual Meetings</a>
+                                <a href="blog-post-9.html">How to Stand Out in a Group Interview</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Executive presence looks different in the remote work era. Learn how to command attention, build credibility, and lead effectively through a screen.
+                                Group interviews, meaning multiple candidates are being interviewed at the same time, can be nerve-wracking and challenging. While they are rare, some...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-9.html" class="blog-card__link">Read →</a>
                             </div>
@@ -299,31 +357,1112 @@
                     </article>
 
                     <!-- Blog Post 10 -->
-                    <article class="blog-card">
+                    <article class="blog-card" data-category="career-management" data-tags="">
                         <div class="blog-card__image">
-                            <img src="assets/images/From Application to Offer The Timeline Hiring Managers Won't Tell You.jpeg" alt="From Application to Offer The Timeline Hiring Managers Won't Tell You" />
-                            <span class="blog-card__category-badge">Hiring Process</span>
+                            <img src="assets/images/blog/5-effective-tips-for-landing-your-first-post-graduation-job.png" alt="Group interview with a person looking at a resume" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
                         </div>
                         <div class="blog-card__content">
                             <div class="blog-card__meta">
-                                <span class="blog-card__date">January 28, 2025</span>
-                                <span class="blog-card__reading-time">6 min read</span>
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">4 min read</span>
                             </div>
                             <h2 class="blog-card__title">
-                                <a href="blog-post-10.html">From Application to Offer: The Timeline Hiring Managers Won't Tell You</a>
+                                <a href="blog-post-10.html">5 Effective Tips for Landing Your First Post-Graduation Job</a>
                             </h2>
                             <p class="blog-card__excerpt">
-                                Understanding the real timeline behind corporate hiring decisions can save you stress and help you follow up strategically. Here's what actually happens behind the scenes.
+                                It is no secret that landing a job that aligns with your professional aspirations and skillset is tough when you are a fresh college graduate. This ye...
                             </p>
                             <div class="blog-card__footer">
                                 <div class="blog-card__author">
                                     <div class="blog-card__author-avatar">DM</div>
-                                    <span>Dana Manciagli</span>
+                                    <span>Dana</span>
                                 </div>
                                 <a href="blog-post-10.html" class="blog-card__link">Read →</a>
                             </div>
                         </div>
                     </article>
+
+                    <!-- Blog Post 11 -->
+                    <article class="blog-card" data-category="career-management" data-tags="">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/covid-pay-cut-top-3-negotiation-questions-answered.png" alt="Two people negotiating seated" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">August 23, 2020</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-11.html">COVID Pay Cut? Top 3 Negotiation Questions Answered</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Question 1: If my salary gets cut, can I negotiate for other perks? Do NOT ask for anything in exchange right now. Be grateful you kept your employmen...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-11.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 12 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/top-types-of-networking-bloopers-to-avoid.png" alt="Person handing their business card to someone else" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">July 21, 2020</span>
+                                <span class="blog-card__reading-time">6 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-12.html">Top Types of Networking Bloopers to Avoid</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Everyone gets that the power of connecting with people can help us achieve our goals. Unfortunately, the term "networking" sometimes has a bad connota...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-12.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 13 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/a-thank-you-note-is-just-the-first-step-of-your-post-interview-follow-up.png" alt="A person circling an event in their calendar called &quot;Follow up&quot;" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">July 21, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-13.html">A Thank You Note Is Just the First Step of Your Post-Interview Follow-Up</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                You just wrapped up the big job interview you have been hoping for. Maybe you think your work is done and it's time to sit back and wait for the resul...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-13.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 14 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/navigating-the-generational-divide-during-your-job-search.png" alt="Photo of a woman helping a man on his computer" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">July 20, 2020</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-14.html">Navigating the Generational Divide During Your Job Search</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                As the graduating classes of 2019 crossed the stage, a new wave of employees was ushered into today’s multi-generational workforce. Given the perceive...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-14.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 15 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/how-to-have-a-successful-job-search.png" alt="Roulette Table" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">July 14, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-15.html">How to Have A Successful Job Search</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                When looking for your next job or career opportunity, do you know how to play what I call the "odds game"? What is the odds game, you ask? The odds ga...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-15.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 16 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,executives,job-interview,job-search,job-seekers,military-spouse-employment,mindset">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/executives-how-to-move-up-or-move-out-of-your-organization.png" alt="Woman speaking in a business meeting" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 22, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-16.html">Executives: How to Move Up or Move Out of Your Organization</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                A shockingly high 28% of people currently employed are actively seeking new employment, and more than 40% are "passively open to new opportunities," a...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-16.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 17 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/job-seekers-and-career-changers-it-s-not-about-you.png" alt="Two people talking in a stairwell" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 18, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-17.html">Job Seekers and Career-Changers, “It’s Not About You!”</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                In the grand scheme of things, LinkedIn is relatively new as a job search tool. Not only has hiring companies' use of it increased, but the functional...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-17.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 18 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset,motivation">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/https-www-danamanciagli-com-how-to-ace-a-competency-based-job-interview.png" alt="Man sprinting on a track" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 18, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-18.html">https://www.danamanciagli.com/how-to-ace-a-competency-based-job-interview/</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Now that the job market has flip-flopped to a buyer's market, and one that is flooded with job seekers, it is time for you to pause and reboot your jo...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-18.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 19 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="cancer,career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,mindset">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/what-a-stage-4-cancer-diagnosis-can-change-about-your-career-mindset.png" alt="Pink breast cancer ribbon" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 18, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-19.html">What a Stage 4 Cancer Diagnosis Can Change About Your Career Mindset</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                This may sound surprising, but battling stage 4 breast cancer has been a blessing in disguise. Facing my own mortality has changed me, both personally...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-19.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 20 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,resume,veteran-employment">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/negotiating-the-terms-of-a-job-offer-a-call-to-action-for-companies.png" alt="2 people shaking hands" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 11, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-20.html">Negotiating the Terms of A Job Offer: A Call To Action For Companies</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Mike is a U.S. Air Force Veteran, recently transitioned out of serving our country to pursue an internet technology (IT) career in the civilian world....
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-20.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 21 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,resume,veteran-employment">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/job-and-career-fairs-8211-new-free-step-by-step-took-kit.png" alt="Two people in suits smiling in an office" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 11, 2020</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-21.html">Job and Career Fairs - New FREE Step-by-Step Took Kit</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Have you ever said any of these about job or career fairs? ”Job or Career Fairs are a waste of time.” "I'll just walk around to learn." "I'm an introv...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-21.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 22 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,resume,veteran-employment">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/how-to-stay-motivated-during-your-job-search.png" alt="Person with their arms up at the top of a mountain at sunrise" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 12, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-22.html">How to Stay Motivated During Your Job Search</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                For much of January, the gym in my neighborhood is packed. Eating healthier and exercising are among the top resolutions for 2019 — along with finding...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-22.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 23 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,resume,veteran-employment">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/why-the-coronavirus-pandemic-will-lead-to-more-income-inequality.png" alt="Woman stressed on her laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 22, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-23.html">Why the Coronavirus Pandemic will Lead to More Income Inequality</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                COVID-19 and its effect on employment is top of mind for job seekers and employers. The labor crisis is affecting millions of people who were gainfull...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-23.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 24 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,military-spouse-employment,resume">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/the-military-spouse-employment-plight.png" alt="Military spouse on her laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 20, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-24.html">The Military Spouse Employment Plight</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Active duty military spouses face a 24% unemployment rate. And over 31% are working part-time even if they would prefer to work full-time. Though it m...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-24.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 25 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,college-grads,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,resume">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/college-graduate-employment-will-suffer-8211-immediately.png" alt="Person on their laptop using Job Search Master Class for College Graduates" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 6, 2020</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-25.html">College Graduate Employment Will Suffer - Immediately</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                It doesn't take an economist to connect the dots. As a result of the coronavirus, we are in a perfect storm to impede college graduates from landing m...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-25.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 26 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,resume">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/get-your-career-plan-b-going-right-now-free-job-tracker-to-help.png" alt="Man in business clothes with a stick note on his forehead that says &quot;help&quot;" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 1, 2020</span>
+                                <span class="blog-card__reading-time">7 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-26.html">Get Your “Career Plan B” Going Right Now – FREE Job Tracker to Help</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                What are you waiting for? Newsflash - Nobody cares about your career as much as you should care. If you don’t take control of your next move now, it m...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-26.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 27 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="career,career-management,cover-letter,dana-manciagli,job-interview,job-search,job-seekers,resume">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/don-8217-t-skip-the-cover-letter.png" alt="Woman on her laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">December 6, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-27.html">Don't Skip the Cover Letter</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                The importance of a well-crafted cover letter cannot be overstated. A résumé contains the information potential employers need to know about where you...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-27.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 28 -->
+                    <article class="blog-card" data-category="career-management" data-tags="career-management,dana-manciagli,job-search,job-seekers,luvleen-sidhu,millennials">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/3-inevitable-career-8220-struggles-8221-and-how-to-learn-from-them.png" alt="Man frustrated with fingers on his forehead" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">November 19, 2019</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-28.html">3 Inevitable Career "Struggles" and How to Learn from Them</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                3 Inevitable Career “Struggles” and How to Learn from Them Everybody’s career will have ebbs and flows, challenges, and opportunities. No matter how g...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-28.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 29 -->
+                    <article class="blog-card" data-category="job-search" data-tags="career-management,dana-manciagli,job-search,job-seekers,millennials">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/get-ready-to-job-search-in-5-steps.png" alt="Woman drinking coffee in front of her computer" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">October 24, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-29.html">Get Ready to Job Search in 5 Steps</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Get Ready to Job Search in 5 Steps For anyone getting started with the job search process, getting started might be the hardest part. Learn 5 steps yo...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-29.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 30 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="dana-manciagli,job-interview,job-search">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/how-to-stand-out-on-a-phone-interview.png" alt="Woman on the phone while walking" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">October 23, 2019</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-30.html">How to Stand Out on a Phone Interview</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                HOW TO STAND OUT ON A PHONE INTERVIEW Although it may seem that video interview technology is all the rage, knowing how to handle yourself on a good o...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-30.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 31 -->
+                    <article class="blog-card" data-category="job-search" data-tags="business,career-management,job-search,job-seekers">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/get-your-head-in-the-job-search-game.png" alt="Man in a suit on his laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">October 4, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-31.html">Get Your Head in the Job Search Game</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Get your Head in the Job Search Game You are finally ready to take the leap: find a new job or try to move within your existing company. Getting to th...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-31.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 32 -->
+                    <article class="blog-card" data-category="job-search" data-tags="dana-manciagli,executive-job-coach,job-interview,job-search,job-search-tips,job-seekers,millennials">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/5-tricks-for-online-job-searching.png" alt="Two people sitting and talking on the street" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">September 30, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-32.html">5 Tricks for Online Job Searching</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                5 Tricks for Online Job Searching Have you ever said to yourself: “There just aren’t any jobs out there; I’ve looked.” One issue could be where you ar...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-32.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 33 -->
+                    <article class="blog-card" data-category="career-management" data-tags="business,career-management,communication,dana-manciagli,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/5-myth-busters-on-getting-help-for-your-small-business.png" alt="Two coffee shop workers smiling" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">September 19, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-33.html">5 Myth Busters on Getting Help for Your Small Business</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                5 Myth Busters on Getting Help for Your Small Business Perhaps you have discovered that the right path for you at this time is to go out on your own. ...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-33.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 34 -->
+                    <article class="blog-card" data-category="linkedin" data-tags="business,career-advice,job-search,job-search-tips,job-seekers,linkedin,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/how-to-make-your-linkedin-profile-shine.png" alt="LinkedIn Logo" loading="lazy" />
+                            <span class="blog-card__category-badge">LinkedIn</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">July 18, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-34.html">How to Make Your LinkedIn Profile Shine</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                How to Make your LinkedIn Profile Shine Let’s face it, in the world of job search, if you are not on LinkedIn, you don’t exist. LinkedIn offers the br...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-34.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 35 -->
+                    <article class="blog-card" data-category="job-search" data-tags="dana-manciagli,job-search,veterans-in-the-workplace">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/learn-from-u-s-military-veterans-get-your-mindset-ready-to-compete-for-a-job.png" alt="U.S. Military Veteran seated a computer with another person" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 21, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-35.html">Learn from U.S. Military Veterans: Get Your Mindset Ready to Compete for a Job</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Learn from U.S. Military Veterans: Get Your Mindset Ready to Compete for a Job Changing careers, industries, companies or geographies can be overwhelm...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-35.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 36 -->
+                    <article class="blog-card" data-category="job-search" data-tags="business,career,career-advice,career-change,career-expert,career-management,dana-manciagli,job-search">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/secrets-to-researching-your-next-career-move.png" alt="Two older people smiling and looking at a laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 13, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-36.html">Secrets to Researching Your Next Career Move</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Secrets to Researching Your Next Career Move You all know that great research is a critical step in your job search process. Duh, right? So, why do ca...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-36.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 37 -->
+                    <article class="blog-card" data-category="small-business" data-tags="communication,millennials,networking,performance,small-business,teamwork">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/build-a-tribe-and-shrink-the-gender-pay-gap.png" alt="Overhead view of office workers at their cubicles" loading="lazy" />
+                            <span class="blog-card__category-badge">Small Business</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">June 7, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-37.html">Build a Tribe and Shrink the Gender Pay Gap</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Build a Tribe and Shrink the Gender Pay Gap Do you think a company with more women in leadership positions is more likely to offer employees equal pay...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-37.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 38 -->
+                    <article class="blog-card" data-category="teamwork" data-tags="business,career,career-advice,dana-manciagli,leadership,millennials">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/4-reasons-you-may-not-be-getting-traction-as-a-leader.png" alt="People in an office meeting" loading="lazy" />
+                            <span class="blog-card__category-badge">Teamwork</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 30, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-38.html">4 Reasons You May Not Be Getting Traction as a Leader</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                4 Reasons You May Not Be Getting Traction as a Leader Even with billions of dollars of corporate investment in training, leaders at all levels can sti...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-38.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 39 -->
+                    <article class="blog-card" data-category="career-management" data-tags="business,career-advice,career-management,communication,job-search,job-seekers,millennials,social-media,tips">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/clean-up-your-social-media-for-future-employers.png" alt="Photo of young man on his phone" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 15, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-39.html">Clean Up Your Social Media for Future Employers</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Clean Up Your Social Media for Future Employers While conducting your job search, it is imperative to set yourself up for success. Just as you want to...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-39.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 40 -->
+                    <article class="blog-card" data-category="job-search" data-tags="dana-manciagli,job-search,job-seekers,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/three-steps-to-building-a-successful-job-search-plan.png" alt="Young man with coffee and a laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 9, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-40.html">Three Steps to Building a Successful Job Search Plan</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Three Steps to Building a Successful Job Search Plan Looking for a job isn’t what it used to be. Today’s job search is an activity that requires organ...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-40.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 41 -->
+                    <article class="blog-card" data-category="set-your-goal" data-tags="business,career-advice,career-expert,dana-manciagli,job-search,job-seekers,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/8-tips-to-up-your-small-talk-game.png" alt="People in business clothes standing and talking" loading="lazy" />
+                            <span class="blog-card__category-badge">Set Your Goal</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">May 3, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-41.html">8 Tips to Up Your Small Talk Game</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                8 Tips to Up Your Small Talk Game Smartphones help us avoid face-to-face conversations. While technology can help people connect with one another, fac...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-41.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 42 -->
+                    <article class="blog-card" data-category="career-management" data-tags="communication,dana-manciagli,job-search,job-search-tips,job-seekers,linkedin,millennials,networking,resume,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/embracing-employment-gaps-and-career-changes-in-your-r-sum.png" alt="Woman on her laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 25, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-42.html">Embracing Employment Gaps and Career Changes in Your Résumé</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Embracing Employment Gaps and Career Changes in Your Résumé Working for one company for a long period of time or having gaps in employment history doe...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-42.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 43 -->
+                    <article class="blog-card" data-category="company-culture" data-tags="communication">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/mom-s-thank-you-notes-and-follow-up.png" alt="Thank you note" loading="lazy" />
+                            <span class="blog-card__category-badge">company culture</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 23, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-43.html">Mom’s Thank You Notes and Follow Up</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Mom’s Thank-you Notes and Follow Up Turns out, your mother was right! Sending thank you notes is the right thing to do. However, in the job search pro...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-43.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 44 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="business,career-advice,career-management,communication,dana-manciagli,interview,interview-questions,interview-tips">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/7-questions-to-ask-in-your-next-job-interview.png" alt="Woman asking a question in an interview" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 12, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-44.html">7 Questions to Ask in Your Next Job Interview</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Ok, you landed an interview at one of your top companies to work for! Great job. Now, I’d like to share one of my tried and true interview tips before...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-44.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 45 -->
+                    <article class="blog-card" data-category="job-search" data-tags="business,career,career-advice,job-fair,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/get-results-from-career-or-job-fairs.png" alt="Overhead picture of a job fair floor" loading="lazy" />
+                            <span class="blog-card__category-badge">job search</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 4, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-45.html">Get Results from Career or Job Fairs!</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Get Results from Career or Job Fairs! If you have ever been to a career or job fair, you know that standing out and making a good impression are keys ...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-45.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 46 -->
+                    <article class="blog-card" data-category="career-management" data-tags="career-management,job-search,job-search-tips,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/add-cold-calling-techniques-to-land-your-career-move.png" alt="Man frustrated on the phone" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">April 3, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-46.html">Add Cold Calling Techniques to Land Your Career Move</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Add Cold Calling Techniques to Land Your Career Move Making cold calls on companies can give job seekers the chills! As a hiring manager and job searc...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-46.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 47 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="business,career,career-advice,career-change,career-expert,career-management,job-interview,millennials">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/why-a-great-job-search-goal-will-get-you-hired-faster.png" alt="Two people shaking hands" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">March 28, 2019</span>
+                                <span class="blog-card__reading-time">5 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-47.html">Why a Great Job Search Goal Will Get You Hired Faster</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Why a Great Job Search Goal Will Get You Hired Faster Developing a clear job search goal is a key step before you begin hunting for your next career m...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-47.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 48 -->
+                    <article class="blog-card" data-category="career-management" data-tags="job-search,job-seekers,millennials,quick-tip,small-business,social-media">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/3-ways-to-thrive-in-today-s-gig-economy.png" alt="Person with coffee at their laptop" loading="lazy" />
+                            <span class="blog-card__category-badge">Career Management</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">March 14, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-48.html">3 Ways to Thrive in Today’s Gig Economy</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                Side Hustles: 3 Ways to Thrive in Today’s Gig Economy It’s no secret: side hustles are the newest norm in business today. From student debt and low re...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-48.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 49 -->
+                    <article class="blog-card" data-category="apply-interview" data-tags="dana-manciagli,interview,job-search,job-seekers,millennials,small-business">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/how-to-master-the-finer-details-of-interviewing.png" alt="Group interview" loading="lazy" />
+                            <span class="blog-card__category-badge">Apply &amp; Interview</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">February 28, 2019</span>
+                                <span class="blog-card__reading-time">4 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-49.html">How to Master the Finer Details of Interviewing</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                How to Master the Finer Details of Interviews Killer resume? Check. New suit for the interview? Check. Hair and makeup on point? Check. You have proba...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-49.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 50 -->
+                    <article class="blog-card" data-category="linkedin" data-tags="business,career,communication,dana-manciagli,millennials,networking">
+                        <div class="blog-card__image">
+                            <img src="assets/images/blog/3-reasons-to-meet-face-to-face-in-a-virtual-world.png" alt="People meeting at a table" loading="lazy" />
+                            <span class="blog-card__category-badge">LinkedIn</span>
+                        </div>
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">February 21, 2019</span>
+                                <span class="blog-card__reading-time">3 min read</span>
+                            </div>
+                            <h2 class="blog-card__title">
+                                <a href="blog-post-50.html">3 Reasons to Meet Face-to-Face in a Virtual World</a>
+                            </h2>
+                            <p class="blog-card__excerpt">
+                                3 Reasons to Meet Face-to-Face in a Virtual World Are you as confused as I am? Do you know when it’s ideal to communicate with colleagues and clients ...
+                            </p>
+                            <div class="blog-card__footer">
+                                <div class="blog-card__author">
+                                    <div class="blog-card__author-avatar">DM</div>
+                                    <span>Dana</span>
+                                </div>
+                                <a href="blog-post-50.html" class="blog-card__link">Read →</a>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -380,7 +1519,6 @@
                 </p>
                 <div class="footer__legal">
                     <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
-                    <a href="terms.html" class="footer__legal-link">Terms & Conditions</a>
                     <a href="accessibility.html" class="footer__legal-link">Accessibility</a>
                 </div>
             </div>
@@ -389,5 +1527,15 @@
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script>
+        // Load search index
+        fetch('blog-search-index.json')
+            .then(response => response.json())
+            .then(searchIndex => {
+                window.blogSearchIndex = searchIndex;
+                console.log('Search index loaded:', searchIndex.length, 'posts');
+            })
+            .catch(error => console.error('Error loading search index:', error));
+    </script>
 </body>
 </html>
