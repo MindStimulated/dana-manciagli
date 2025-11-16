@@ -2072,8 +2072,8 @@ em {
   }
 }
 
-/* Hide "Get In Touch" button when it would wrap */
-@media (max-width: 1035px) {
+/* Hide "Get In Touch" button when it would wrap (desktop only) */
+@media (min-width: 769px) and (max-width: 1035px) {
   .nav__link--cta {
     display: none;
   }
@@ -2162,6 +2162,13 @@ em {
     display: block;
   }
 
+  /* Show "Get In Touch" button in mobile menu */
+  .nav__link--cta {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
   .hero {
     padding-top: calc(var(--space-2xl) + 80px);
   }
@@ -2178,18 +2185,8 @@ em {
     width: 100%;
   }
 
-  /* Hero credentials mobile optimization */
+  /* Hide hero credentials on mobile */
   .hero__credentials {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
-  }
-
-  .credential__text {
-    font-size: var(--font-size-sm);
-  }
-
-  .credential__separator {
     display: none;
   }
 
@@ -2203,6 +2200,17 @@ em {
 
   .contact__form {
     grid-template-columns: 1fr;
+  }
+
+  /* Fix contact form overflow on mobile */
+  .contact__form-wrapper {
+    padding: var(--space-lg);
+    margin: 0;
+  }
+
+  .contact__container {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
   }
 
   .book__links-grid {
@@ -2254,6 +2262,30 @@ em {
   }
 }
 
+/* iPhone 13 Pro and similar (390px width) optimization */
+@media (max-width: 400px) {
+  .contact__form-wrapper {
+    padding: var(--space-sm) var(--space-xs);
+    border-radius: var(--radius-md);
+  }
+
+  .contact__container {
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+
+  .form__input,
+  .form__select,
+  .form__textarea {
+    padding: var(--space-xs) var(--space-sm);
+  }
+
+  .nav__link--cta {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-base);
+  }
+}
+
 @media (max-width: 480px) {
   :root {
     --font-size-5xl: 2rem;
@@ -2292,14 +2324,6 @@ em {
     font-size: var(--font-size-base);
   }
 
-  .hero__credentials {
-    padding-top: var(--space-md);
-  }
-
-  .credential__text {
-    font-size: var(--font-size-xs);
-  }
-
   .stat__number {
     font-size: 1.75rem;
   }
@@ -2314,5 +2338,16 @@ em {
   .expertise__grid,
   .services__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Further reduce contact form padding on very small screens */
+  .contact__form-wrapper {
+    padding: var(--space-md);
+  }
+
+  .form__input,
+  .form__select,
+  .form__textarea {
+    font-size: var(--font-size-sm);
   }
 }
