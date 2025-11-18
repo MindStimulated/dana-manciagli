@@ -2173,6 +2173,17 @@ em {
     padding-top: calc(var(--space-2xl) + 80px);
   }
 
+  /* Move hero image below text on mobile and make it smaller */
+  .hero__image {
+    order: 1;
+    margin-top: var(--space-lg);
+  }
+
+  .hero__image-frame {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
   .hero__title {
     font-size: var(--font-size-4xl);
   }
@@ -2284,6 +2295,15 @@ em {
     padding: var(--space-sm) var(--space-md);
     font-size: var(--font-size-base);
   }
+
+  /* Even smaller hero image on iPhone 13 Pro */
+  .hero__image-frame {
+    max-width: 180px;
+  }
+
+  .hero__image {
+    margin-top: var(--space-md);
+  }
 }
 
 @media (max-width: 480px) {
@@ -2322,6 +2342,11 @@ em {
 
   .hero__subtitle {
     font-size: var(--font-size-base);
+  }
+
+  /* Further reduce hero image on very small screens */
+  .hero__image-frame {
+    max-width: 200px;
   }
 
   .stat__number {
