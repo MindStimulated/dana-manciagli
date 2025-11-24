@@ -279,8 +279,8 @@ function initContactForm() {
 
       // Validate form
       if (validateForm(data)) {
-        // In production, you would send this to a backend endpoint
-        handleFormSubmission(data);
+        // Submit to Netlify Forms
+        handleNetlifyFormSubmission(form, formData);
       }
     });
   }
@@ -423,8 +423,49 @@ function showFormErrors(errors) {
 }
 
 /**
- * Handle form submission
- * NOTE: In production, this should send data to a backend endpoint
+ * Handle form submission to Netlify Forms
+ */
+function handleNetlifyFormSubmission(form, formData) {
+  // Disable submit button to prevent double submission
+  const submitButton = form.querySelector('button[type="submit"]');
+  const originalButtonText = submitButton.textContent;
+  submitButton.disabled = true;
+  submitButton.textContent = 'Sending...';
+
+  // Submit form data to Netlify
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(response => {
+    if (response.ok) {
+      showFormSuccess();
+      form.reset();
+
+      // Hide the "other inquiry" field if it was shown
+      const otherInquiryGroup = document.getElementById('other-inquiry-group');
+      if (otherInquiryGroup) {
+        otherInquiryGroup.style.display = 'none';
+      }
+    } else {
+      throw new Error('Form submission failed');
+    }
+  })
+  .catch(error => {
+    console.error('Form submission error:', error);
+    showFormErrors(['An error occurred while submitting the form. Please try emailing Dana@Danamanciagli.com directly or try again later.']);
+  })
+  .finally(() => {
+    // Re-enable submit button
+    submitButton.disabled = false;
+    submitButton.textContent = originalButtonText;
+  });
+}
+
+/**
+ * Handle form submission (legacy - kept for reference)
+ * NOTE: Now using handleNetlifyFormSubmission for production
  */
 function handleFormSubmission(data) {
   console.log('Form submitted with data:', data);
@@ -434,25 +475,6 @@ function handleFormSubmission(data) {
 
   // Reset form
   document.getElementById('contact-form').reset();
-
-  // In production, you would do something like:
-  /*
-  fetch('/api/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => response.json())
-  .then(result => {
-    showFormSuccess();
-    document.getElementById('contact-form').reset();
-  })
-  .catch(error => {
-    showFormErrors(['An error occurred. Please try again later.']);
-  });
-  */
 }
 
 /**
